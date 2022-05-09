@@ -37,10 +37,18 @@ public class Combinaison {
   public String toString(){
     int i=0;
     String res="";
-    for(i=0;i<taille;i++) {
+    for(i=0;i<this.taille;i++) {
       res=res+this.combi[i]+" ";
     }
     return res;
+  }
+
+  public couleur[] getCombi(){
+    return this.combi;
+  }
+
+  public int getTaille(){
+    return this.taille;
   }
 
 //test
@@ -48,11 +56,15 @@ public class Combinaison {
     Combinaison combi=new Combinaison();
     couleur[] combitab2=new couleur[]{couleur.bleu, couleur.rouge, couleur.vert};
     couleur[] combitab3=new couleur[]{couleur.bleu, couleur.rouge, couleur.vert,couleur.rouge};
-    Combinaison combi2=new Combinaison(4, combitab2);
+    couleur[] combitab4=new couleur[3];
+    Combinaison combi2=new Combinaison(3, combitab2);
+    combitab4=combi2.getCombi();
+    Combinaison combi3=new Combinaison(3, combitab3);
     System.out.println(combi.toString());
     combi.setCombi(combitab3);
     System.out.println(combi.toString());
     System.out.println(combi2.toString());
+    System.out.println(combi3.toString());
   }
 
 }
