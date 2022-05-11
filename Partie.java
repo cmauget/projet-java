@@ -1,7 +1,7 @@
 public class Partie {
 
-  public Joueur cacheur;
-  public Joueur chercheur;
+  public Cacheur cacheur;
+  public Chercheur chercheur;
   public Combinaison combi;
   public int nbEssais;
 

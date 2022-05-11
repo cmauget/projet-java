@@ -57,6 +57,12 @@ public class HallOfFame {
 
   //test
     public static void main(String[] args) {
+      HallOfFame h1 = new HallOfFame();
+      h1.tabNom[2]="diane";
+      h1.tabNom[1]="clement";
+      h1.tabNom[4]="mc";
+      h1.tabScore[2]=3;
+      System.out.println(h1.toString());
     }
 
 }
