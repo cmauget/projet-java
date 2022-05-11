@@ -20,7 +20,7 @@ public class Partie {
   }
 
   public void lancerPartie(){
-
+    Partie part = new Partie();
   }
 
   public void arreterPartie(){

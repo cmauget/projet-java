@@ -20,11 +20,11 @@ public class Joueur extends Combinaison {
     this.pseudo=pseudo;
     this.combi= new Combinaison();
   }
-  Scanner sc = new Scanner(System.in);
+
 
   public void creerCombi(int taille){
     int i=0;
-
+    Scanner sc = new Scanner(System.in);
     System.out.println("Veuillez entrer votre combinaison svp");
 
     for(i=0;i<combi.taille;i++)
