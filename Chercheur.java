@@ -1,13 +1,19 @@
-public class Chercheur {
+public class Chercheur extends Joueur{
 
    public int score ;
+   public String pseudo;
+   public Combinaison combi;
 
    public Chercheur(){
      this.score=0;
+     this.pseudo="NA";
+     this.combi=new Combinaison();
    }
 
-   public Chercheur(int points){
+   public Chercheur(int points,String pseudo){
      this.score=points;
+     this.pseudo=pseudo;
+     this.combi=new Combinaison();
    }
 
    public int getScore(){
@@ -18,12 +24,24 @@ public class Chercheur {
      this.score=points;
    }
 
+   public String toString(){
+     String res="";
+     String scr = String.valueOf(score);
+     res = scr;
+     res = res +" " + this.pseudo;
+     res = res + " " + combi.toString();
+     return res;
+   }
+
    //test
      public static void main(String[] args) {
        Chercheur cherch1=new Chercheur();
-       Chercheur cherch2=new Chercheur(5);
-       System.out.println(cherch1.score);
-       System.out.println(cherch2.score);
+       Chercheur cherch2=new Chercheur(5,"diane");
+       System.out.println(cherch1.toString());
+       couleur[] combi2=new couleur[]{couleur.bleu, couleur.rouge, couleur.vert};
+       Combinaison combi1=new Combinaison(3, combi2);
+       cherch2.combi=combi1;
+       System.out.println(cherch2.toString());
      }
 
 }

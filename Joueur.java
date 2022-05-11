@@ -24,7 +24,7 @@ public class Joueur extends Combinaison {
 
   public void creerCombi(int taille){
     int i=0;
-    Scanner sc = new Scanner(System.in);
+  //  Scanner sc = new Scanner(System.in);
     System.out.println("Veuillez entrer votre combinaison svp");
 
     for(i=0;i<combi.taille;i++)
