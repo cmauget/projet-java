@@ -55,14 +55,14 @@ public class Combinaison {
   }
 
   //pour ordinateur
-  public static void genererCombi(int niveauDifficulte){
-  Random rnd = new Random();
-  //nbr couleurs dispo
-  int m=7;
-  for (int k=0;k<niveauDifficulte;++k)
-  {
+  public void genererCombi(int niveauDifficulte){
+    Random rnd = new Random();
+    nbr couleurs dispo;
+    int m=7;
+    for (int k=0;k<niveauDifficulte;++k)
+    {
     combi.tab[k] = rnd.nextInt(m)+1;
-  }
+    }
   }
 
 //test

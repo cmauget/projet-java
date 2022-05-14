@@ -22,7 +22,7 @@ public class Joueur extends Combinaison {
   }
 
 
-  public void creerCombi(int taille){
+  public String creerCombi(int taille){
     int i=0;
   //  Scanner sc = new Scanner(System.in);
     System.out.println("Veuillez entrer votre combinaison svp");
@@ -30,8 +30,9 @@ public class Joueur extends Combinaison {
     for(i=0;i<combi.taille;i++)
     {
     Scanner sc = new Scanner(System.in);
-    String str = sc.nextLine();
+    String CombiClavier = sc.nextLine();
     }
+    return CombiClavier;
   }
 
    public String toString(){
@@ -50,5 +51,6 @@ public class Joueur extends Combinaison {
     couleur[] combi2=new couleur[]{couleur.bleu, couleur.rouge, couleur.vert};
     Combinaison combi=new Combinaison(3, combi2);
     System.out.println(combi.toString());
+    Combinaison NewCombi = new creerCombi(5);
   }
 }
