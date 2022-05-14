@@ -1,3 +1,6 @@
+import java.util.Random;
+import java.util.Scanner;
+
 public class Combinaison {
 
   public enum couleur{rouge, bleu, vert, jaune, orange, blanc, noir, rose};
@@ -49,6 +52,17 @@ public class Combinaison {
 
   public int getTaille(){
     return this.taille;
+  }
+
+  //pour ordinateur
+  public static void genererCombi(int niveauDifficulte){
+  Random rnd = new Random();
+  //nbr couleurs dispo
+  int m=7;
+  for (int k=0;k<niveauDifficulte;++k)
+  {
+    combi.tab[k] = rnd.nextInt(m)+1;
+  }
   }
 
 //test
