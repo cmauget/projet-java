@@ -21,7 +21,7 @@ public class Partie {
     nbEssais = essais;
   }
 
-  public void lancerPartie(int maxEssais,int niveauDifficulte){
+  public void lancerPartie(int maxEssais,int taille){
     Partie part = new Partie();
     genererCombi(int niveauDifficulte);
     //initialise les parametres du chercheur
