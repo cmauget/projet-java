@@ -49,14 +49,19 @@ public class HallOfFame {
 
   public void setScore(int score, String pseudo){
     if (score>this.tabScore[4]){
-      int i=1;
-      while(i<4 && this.tabScore[i]>score){
+      int i=4;
+      while(i>0 && this.tabScore[i]<=score){
         this.tabScore[i]=this.tabScore[i-1];
         this.tabNom[i]=this.tabNom[i-1];
-        i++;
+        i--;
       }
-      this.tabScore[i]=score;
-      this.tabNom[i]=pseudo;
+      if (score>=this.tabScore[0]){
+        this.tabScore[0]=score;
+        this.tabNom[0]=pseudo;
+      } else {
+        this.tabScore[i+1]=score;
+        this.tabNom[i+1]=pseudo;
+      }
     }
   }
 
@@ -79,7 +84,7 @@ public class HallOfFame {
       h1.tabNom[1]="clement";
       h1.tabNom[4]="mc";
       h1.tabScore[2]=3;*/
-      h1.setScore(450, "IHB");
+      h1.setScore(550, "IHB");
       System.out.println(h1.toString());
     }
 
