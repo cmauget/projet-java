@@ -5,7 +5,7 @@ import java.util.Scanner;
 
 
 
-public class Joueur extends Combinaison {
+public class Joueur{
 
   public String pseudo;
   public Combinaison combi;
@@ -22,17 +22,23 @@ public class Joueur extends Combinaison {
   }
 
 
-  public void creerCombi(int taille){
+  public int[] creerCombi(int taille){
     int i=0;
     System.out.println("Veuillez entrer votre combinaison svp");
-
-    for(i=0;i<combi.taille;i++)
-    {
+    int[] CombiClavier = new int[taille];
     Scanner sc = new Scanner(System.in);
-    String CombiClavier = sc.nextLine();
-    System.out.println("vous avez saisi la combinaison suivante:"+CombiClavier);
-    }
-  }
+
+    for(i=0;i<taille;i++){
+    do{
+
+          CombiClavier[i] = sc.nextInt();
+
+     }while((sc.nextInt()>0) && (sc.nextInt()<8));
+   }
+    return CombiClavier;
+}
+
+
 
    public String toString(){
      int i=0;
@@ -47,9 +53,17 @@ public class Joueur extends Combinaison {
   public static void main(String[] args){
     Joueur j1=new Joueur("diane");
     System.out.println(j1.toString());
-    couleur[] combi2=new couleur[]{couleur.bleu, couleur.rouge, couleur.vert};
-    Combinaison combi=new Combinaison(3, combi2);
+    int[] combi2=new int[]{1,2,3,4,5};
+    Combinaison combi=new Combinaison(5, combi2);
     System.out.println(combi.toString());
-    Combinaison NewCombi = new creerCombi(5);
+    int[] testCombi = new int[5];
+    Joueur j3 = new Joueur();
+    testCombi=j3.creerCombi(5);
+    System.out.print("| ");
+    for(int j=0;j<5;j++){
+    System.out.print(testCombi[j]+ " | ");
+    //Combinaison NewCombi = new  Combinaison(5,testCombi);
   }
+  System.out.println(" ");
+}
 }
