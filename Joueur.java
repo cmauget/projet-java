@@ -59,7 +59,7 @@ public class Joueur{
     Combinaison testCombi = new Combinaison(5);
     Joueur j3 = new Joueur();
     testCombi=j3.creerCombi(5);
-    System.out.println(combi.toString());
+    System.out.println(testCombi.toString());
 
     //Combinaison NewCombi = new  Combinaison(5,testCombi);
 
