@@ -61,6 +61,7 @@ public class Partie {
 
   public void arreterPartie(Partie part){//jsp comment faire autrement
     part=null;
+    System.gc();
     System.out.println("La partie c'est bien arrétée");
   }
 
