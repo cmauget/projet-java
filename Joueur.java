@@ -22,17 +22,16 @@ public class Joueur extends Combinaison {
   }
 
 
-  public String creerCombi(int taille){
+  public void creerCombi(int taille){
     int i=0;
-  //  Scanner sc = new Scanner(System.in);
     System.out.println("Veuillez entrer votre combinaison svp");
 
     for(i=0;i<combi.taille;i++)
     {
     Scanner sc = new Scanner(System.in);
     String CombiClavier = sc.nextLine();
+    System.out.println("vous avez saisi la combinaison suivante:"+CombiClavier);
     }
-    return CombiClavier;
   }
 
    public String toString(){
