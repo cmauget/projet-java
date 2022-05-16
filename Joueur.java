@@ -22,23 +22,6 @@ public class Joueur{
   }
 
 
-  public Combinaison creerCombi(int taille){
-    int i=0;
-    System.out.println("Veuillez entrer votre combinaison svp");
-    int[] CombiClavier = new int[taille];
-    Scanner sc = new Scanner(System.in);
-
-    for(i=0;i<taille;i++){
-      do{
-          CombiClavier[i] = sc.nextInt();
-        /*  System.out.println("Indice ; "+i);
-          System.out.println(CombiClavier[i]<0 && CombiClavier[i]>8); */
-       } while(CombiClavier[i]<=0 || CombiClavier[i]>=8);
-   }
-   Combinaison combi=new Combinaison(taille,CombiClavier);
-   return combi;
- }
-
 
   public String toString(){
     int i=0;

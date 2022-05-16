@@ -1,9 +1,9 @@
 import java.util.Scanner;
 
-public class Mastermind extends Partie{
+public class Mastermind{
 
-	public static int taille;
-	public static int maxEssais;
+	public int taille;
+	public int maxEssais;
 
 	public Mastermind(){
 		this.taille=0;
@@ -23,10 +23,11 @@ public class Mastermind extends Partie{
     System.out.println(" 3) HallOfFame");
     System.out.println(" 4) Quitter");
 		String str = sc.nextLine();
+		Partie newPartie = new Partie();
 
     if (str.equals("1")) {
       saisirNiveau();
-      lancerPartie(maxEssais,taille);
+      newPartie.lancerPartie(maxEssais,taille);
     }
     if (str.equals("2")) {
       regles();
@@ -35,7 +36,6 @@ public class Mastermind extends Partie{
       System.out.println("");
     }
     if (srt.equals("4")){
-      Partie newPartie = new Partie();
       newPartie.arreterPartie(this.maxEssais, this.taille);
     }
   }
@@ -47,8 +47,8 @@ public class Mastermind extends Partie{
   	while(!(c == 'n' || c == 'p' || c == 'k'))
   	{
    	 System.out.print("Niveau n)ovice p)ro k)iller?");
-	 c=input.next().charAt(0);
-	}
+	 	 c=input.next().charAt(0);
+		}
 	  switch (c)
 	    {
 	    case 'n':
