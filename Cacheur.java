@@ -31,7 +31,7 @@ public class Cacheur extends Joueur{
       Cacheur cach1=new Cacheur();
       Cacheur cach2=new Cacheur(true,"mc");
       System.out.println(cach1.toString());
-      couleur[] combi2=new couleur[]{couleur.bleu, couleur.rouge, couleur.vert};
+      int[] combi2=new int[]{1,7,3,5,2};
       Combinaison combi1=new Combinaison(3, combi2);
       cach2.combi=combi1;
       System.out.println(cach2.toString());

@@ -38,8 +38,8 @@ public class Chercheur extends Joueur{
        Chercheur cherch1=new Chercheur();
        Chercheur cherch2=new Chercheur(5,"diane");
        System.out.println(cherch1.toString());
-       couleur[] combi2=new couleur[]{couleur.bleu, couleur.rouge, couleur.vert};
-       Combinaison combi1=new Combinaison(3, combi2);
+       int[] combi2=new int[]{1,2,6,5,3};
+       Combinaison combi1=new Combinaison(5, combi2);
        cherch2.combi=combi1;
        System.out.println(cherch2.toString());
      }
