@@ -4,15 +4,18 @@ public class Mastermind{
 
 	public int taille;
 	public int maxEssais;
+	public int niveauDifficulte;
 
 	public Mastermind(){
 		this.taille=0;
 		this.maxEssais=0;
+		this.niveauDifficulte=1;
 	}
 
-	public Mastermind(int tail, int mEssais){
+	public Mastermind(int tail, int mEssais,int niveau){
 		this.taille=tail;
 		this.maxEssais=mEssais;
+		this.niveauDifficulte=niveau;
 	}
 
   //Menu
@@ -27,7 +30,7 @@ public class Mastermind{
 
     if (str.equals("1")) {
       saisirNiveau();
-      newPartie.lancerPartie(maxEssais,taille);
+      newPartie.lancerPartie(maxEssais,taille,niveauDifficulte);
     }
     if (str.equals("2")) {
       regles();
@@ -36,7 +39,7 @@ public class Mastermind{
       System.out.println("");
     }
     if (srt.equals("4")){
-      newPartie.arreterPartie(this.maxEssais, this.taille);
+      newPartie.arreterPartie(maxEssais, taille, niveauDifficulte);
     }
   }
 
@@ -54,19 +57,23 @@ public class Mastermind{
 	    case 'n':
 	      this.taille=4;
 	      this.maxEssais=10;
+				this.niveauDifficulte=1;
 	      //System.out.println(this.maxEssais + " " + this.taille);
 	      break;
 	    case 'p':
 	      this.taille=5;
 	      this.maxEssais=12;
+				this.niveauDifficulte=2;
 	      //System.out.println(this.maxEssais + " " + this.taille);
 	      break;
 	    case 'k':
 	      this.taille=6;
 	      this.maxEssais=15;
+				this.niveauDifficulte=3;
 	      //System.out.println(this.maxEssais + " " + this.taille);
 	      break;
 	    }
+			//return (niveauDifficulte);
 	}
 
 
