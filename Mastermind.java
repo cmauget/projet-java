@@ -26,7 +26,7 @@ public class Mastermind extends Partie{
 
     if (str.equals("1")) {
       saisirNiveau();
-      lancerPartie(int maxEssais,int taille);
+      lancerPartie(maxEssais,taille);
     }
     if (str.equals("2")) {
       regles();
@@ -36,7 +36,7 @@ public class Mastermind extends Partie{
     }
     if (srt.equals("4")){
       Partie newPartie = new Partie();
-      newPartie.arreterPartie(int this.maxEssais,int this.taille);
+      newPartie.arreterPartie(this.maxEssais, this.taille);
     }
   }
 

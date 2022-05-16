@@ -4,8 +4,8 @@ public class Partie {
   public Chercheur chercheur;
   public Combinaison combi;
   public int nbEssais;
-  public enum etatJeu {jeuActuel, jeuGagne, jeuPerdu};
-  public int maxEssais;
+  //public enum etatJeu {jeuActuel, jeuGagne, jeuPerdu};
+  //public int maxEssais;
 
   public Partie(){
     cacheur=joueur();
@@ -33,9 +33,6 @@ public class Partie {
       saisirCombi();
       //compte comme un essai
       nbEssais++;
-
-      int nbp = 0;
-      int nmp = 0;
 
       //resultat du code
   		for (int j=1; j <= nbp; j++)
@@ -65,61 +62,6 @@ public class Partie {
   public void arreterPartie(){
     //trouver bonne combi
     //trop d'essais
-  }
-
-//  public int BIEN_PLACE = -1;
-  //public int MAL_PLACE=0;
-
-  public int trouverBienPlaces(Combinaison test){
-    int nbp=0;
-    int i=0;
-    for (i=0;i<n;i++){
-      if (test.tab[i]==combi.tab[i]){
-        nbp++;
-        test.tab[i]=BIEN_PLACE;
-      }
-    }
-    return nbp;
-  }
-
-  public int position(int valeur){
-    int i=0;
-    while (i<combi.taille && combi.tab[i] != valeur){
-      i++;
-    }
-    return (i<n ? i : -1);
-  }
-
-  public int trouverMalPlaces(Combinaison test){
-    int nmp=0;
-    int i=0;
-    for (i=0;i<n;i++){
-      if (test.tab[i] != BIEN_PLACE){
-        int p = position (combi.tab[i],test)
-        if (p != -1){
-            nmp++;
-            test.tab[i] = MAL_PLACE;
-        }
-      }
-    }
-    return nbp;
-  }
-  public boolean testCombi(Combinaison test){
-    int i=0;
-    var res = new Boolean(true);
-
-    while ((res)&&(i<combi.taille)){
-      if (test.tab[i] == combi.tab[i]) {
-        res = true;
-        i++;
-      }
-      else {
-        res = false;
-        i++;
-        }
-      }
-
-    return (res);
   }
 
   public void setNbEssais(int nbessais){
