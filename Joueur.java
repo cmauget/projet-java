@@ -22,7 +22,7 @@ public class Joueur{
   }
 
 
-  public int[] creerCombi(int taille){
+  public Combinaison creerCombi(int taille){
     int i=0;
     System.out.println("Veuillez entrer votre combinaison svp");
     int[] CombiClavier = new int[taille];
@@ -33,20 +33,20 @@ public class Joueur{
           CombiClavier[i] = sc.nextInt();
         /*  System.out.println("Indice ; "+i);
           System.out.println(CombiClavier[i]<0 && CombiClavier[i]>8); */
-       } while(CombiClavier[i]<0 || CombiClavier[i]>8);
+       } while(CombiClavier[i]<=0 || CombiClavier[i]>=8);
    }
-    return CombiClavier;
-}
+   Combinaison combi=new Combinaison(taille,CombiClavier);
+   return combi;
+ }
 
 
-
-   public String toString(){
-     int i=0;
-     String res="";
-     res = combi.toString();
-     res=res+" joueur = "+this.pseudo;
-     return res;
-   }
+  public String toString(){
+    int i=0;
+    String res="";
+    res = combi.toString();
+    res=res+" joueur = "+this.pseudo;
+    return res;
+ }
 
 
   //test
@@ -56,14 +56,13 @@ public class Joueur{
     int[] combi2=new int[]{1,2,3,4,5};
     Combinaison combi=new Combinaison(5, combi2);
     System.out.println(combi.toString());
-    int[] testCombi = new int[5];
+    Combinaison testCombi = new Combinaison(5);
     Joueur j3 = new Joueur();
     testCombi=j3.creerCombi(5);
-    System.out.print("| ");
-    for(int j=0;j<5;j++){
-    System.out.print(testCombi[j]+ " | ");
+    System.out.println(combi.toString());
+
     //Combinaison NewCombi = new  Combinaison(5,testCombi);
+
+    System.out.println(" ");
   }
-  System.out.println(" ");
-}
 }
