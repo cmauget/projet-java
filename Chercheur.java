@@ -34,7 +34,7 @@ public class Chercheur extends Joueur{
    }
 
    //test
-     public static void main(String[] args) {
+     public static void main(String[] args){
        Chercheur cherch1=new Chercheur();
        Chercheur cherch2=new Chercheur(5,"diane");
        System.out.println(cherch1.toString());

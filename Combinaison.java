@@ -74,8 +74,8 @@ public class Combinaison {
       this.combi[k] = rnd.nextInt(m)+1;
       }
   }
-  
-  public Combinaison creerCombi(int taille){
+
+  public void creerCombi(int taille){
     int i=0;
     System.out.println("Veuillez entrer votre combinaison svp");
     int[] CombiClavier = new int[taille];
@@ -88,8 +88,9 @@ public class Combinaison {
           System.out.println(CombiClavier[i]<0 && CombiClavier[i]>8); */
        } while(CombiClavier[i]<=0 || CombiClavier[i]>=8);
    }
-   Combinaison combi=new Combinaison(taille,CombiClavier);
-   return combi;
+   this.taille=taille;
+   this.combi=CombiClavier;
+   //return combi;
  }
 
   public int[] testCombi(Combinaison combitest){
