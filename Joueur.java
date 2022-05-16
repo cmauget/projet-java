@@ -29,11 +29,11 @@ public class Joueur{
     Scanner sc = new Scanner(System.in);
 
     for(i=0;i<taille;i++){
-    do{
-
+      do{
           CombiClavier[i] = sc.nextInt();
-
-     }while((sc.nextInt()>0) && (sc.nextInt()<8));
+        /*  System.out.println("Indice ; "+i);
+          System.out.println(CombiClavier[i]<0 && CombiClavier[i]>8); */
+       } while(CombiClavier[i]<0 || CombiClavier[i]>8);
    }
     return CombiClavier;
 }
