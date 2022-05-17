@@ -25,8 +25,9 @@ public class Mastermind{
   public int menu(){
 		int jeu=0;
     Scanner sc = new Scanner(System.in);//lire une variable
-		System.out.println("Choississez ce que vous souhaitez faire : 1) Nouvelle Partie ");
-    System.out.println(" 2) Regles");
+		System.out.println("Choississez ce que vous souhaitez faire : ");
+		System.out.println(" 1) Nouvelle Partie");
+		System.out.println(" 2) Regles");
     System.out.println(" 3) HallOfFame");
     System.out.println(" 4) Quitter");
 		String str = sc.nextLine();
@@ -99,10 +100,15 @@ public class Mastermind{
 		do{
 			part.chercheur.combi.creerCombi(this.taille);
 			res = part.combi.testCombi(part.chercheur.combi);
-			System.out.println("bien place : " +res[1]+" mal place : "+res[2]);
 			part.nbEssais++;
 			restant=this.maxEssais-part.nbEssais;
-			System.out.println("il reste "+ restant+" essais");
+			//affichage
+			int i=0;
+			for (i=0;i<this.taille;i++){
+				System.out.print("| "+part.chercheur.combi.combi[i]);
+			}
+			System.out.print(" | nbp: "+res[1]+" | nmp :"+res[2]+" | nbEssais restants : "+restant);
+			System.out.println(" ");
 		} while((part.nbEssais<this.maxEssais)&&(res[1]!=this.taille));
 		if (res[1]==this.taille){
 			System.out.println("BRAVO ! Vous avez gagné :))");
