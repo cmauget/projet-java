@@ -1,0 +1,10 @@
+Diane
+500
+MC
+400
+Clement
+300
+Nom2
+200
+Nom1
+100

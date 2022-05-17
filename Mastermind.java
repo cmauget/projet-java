@@ -124,11 +124,13 @@ public class Mastermind{
   	 Mastermind mast = new Mastermind();
 		 int test;
 		 do{
+			 mast.scoreBoard.chargerHall();
 			 test=mast.menu();
 			 if (test==2){
 			 Partie newPartie = new Partie(mast.taille);
        newPartie.lancerPartie();
 			 mast.jeu(newPartie);
+			 mast.scoreBoard.enregisterHall();
 		  }
 		}while(test!=1);
   }

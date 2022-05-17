@@ -1,3 +1,6 @@
+import java.io.*;
+import java.util.Objects;
+
 public class HallOfFame {
 
   public int[] tabScore; //tableau de 5
@@ -75,17 +78,59 @@ public class HallOfFame {
     return res;
   }
 
+  public void enregisterHall(){
+    int i;
+    PrintWriter printWriter = null;
+    //String textToBeWritten = "Hello";
+        {
+            try {
+                printWriter = new PrintWriter("HallOfFame.txt");
+            } catch (FileNotFoundException e) {
+                System.out.println("Unable to locate the fileName: " + e.getMessage());
+            }
+            for(i=0;i<5;i++) {
+              Objects.requireNonNull(printWriter).println(this.tabNom[i]);
+              Objects.requireNonNull(printWriter).println(this.tabScore[i]);
+            }
+            printWriter.close();
+        }
+  }
+
+  public void chargerHall(){
+    int i;
+    File fichier;
+
+    fichier=new File("HallOfFame.txt");
+    if(fichier.exists()){
+      try(BufferedReader br = new BufferedReader(new FileReader("HallOfFame.txt")))
+      {
+          for(i=0;i<5;i++) {
+            this.tabNom[i]=br.readLine();
+            this.tabScore[i]=Integer.valueOf(br.readLine());
+          }
+      }
+      catch (IOException e) {
+          System.out.println("An error occurred.");
+          e.printStackTrace();
+      }
+    }
+  }
+
   //test
     public static void main(String[] args) {
       int[] tabscoretest=new int[]{500,400,300,200,100};
       String[] tabnomtest=new String[]{"Diane","MC","Clement","Nom2","Nom1"};
       HallOfFame h1 = new HallOfFame(tabscoretest,tabnomtest);
+      HallOfFame h2= new HallOfFame();
+      h1.enregisterHall();
+      h2.chargerHall();
     /*  h1.tabNom[2]="diane";
       h1.tabNom[1]="clement";
       h1.tabNom[4]="mc";
       h1.tabScore[2]=3;*/
       h1.setScore(550, "IHB");
       System.out.println(h1.toString());
+      System.out.println(h2.toString());
     }
 
 }
