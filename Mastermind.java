@@ -5,42 +5,48 @@ public class Mastermind{
 	public int taille;
 	public int maxEssais;
 	public int niveauDifficulte;
+	public HallOfFame scoreBoard;
 
 	public Mastermind(){
 		this.taille=0;
 		this.maxEssais=0;
 		this.niveauDifficulte=1;
+		this.scoreBoard=new HallOfFame();
 	}
 
-	public Mastermind(int tail, int mEssais,int niveau){
+	public Mastermind(int tail, int mEssais,int niveau, HallOfFame score){
 		this.taille=tail;
 		this.maxEssais=mEssais;
 		this.niveauDifficulte=niveau;
+		this.scoreBoard=score;
 	}
 
   //Menu
-  public void menu(){
+  public int menu(){
+		int jeu=0;
     Scanner sc = new Scanner(System.in);//lire une variable
 		System.out.println("Choississez ce que vous souhaitez faire : 1) Nouvelle Partie ");
     System.out.println(" 2) Regles");
     System.out.println(" 3) HallOfFame");
     System.out.println(" 4) Quitter");
 		String str = sc.nextLine();
-		Partie newPartie = new Partie();
+
 
     if (str.equals("1")) {
       saisirNiveau();
-      newPartie.lancerPartie(maxEssais,taille,niveauDifficulte);
+			jeu=2;
     }
     if (str.equals("2")) {
       regles();
     }
     if (str.equals("3")) {
-      System.out.println("");
+      System.out.println(this.scoreBoard);
     }
-    if (srt.equals("4")){
-      newPartie.arreterPartie(maxEssais, taille, niveauDifficulte);
+    if (str.equals("4")){
+			jeu=1;
+      //newPartie.arreterPartie(maxEssais, taille, niveauDifficulte);
     }
+		return jeu;
   }
 
 	//saisir niveau du jeu
@@ -79,18 +85,44 @@ public class Mastermind{
 
 //texte de regles du menu
   public void regles(){
-	   System.out.println("Pouvez-vous trouver ma combinaison de " + this.taille +" symboles");
+	   System.out.println("Pouvez-vous trouver ma combinaison de 4 à 6 symboles");
 	   System.out.println("[chiffres entre 1 et 7 avec repetitions possibles]");
-	   System.out.println("en moins de "+ this.maxEssais +" coups? Entrez les symboles des ");
+	   System.out.println("en moins de 10 à 15 coups? Entrez les symboles des ");
 	   System.out.println("propositions terminees par [Entree].");
-     System.out.println("(# un bien place, o un mal place)" + "\n");
+	}
+
+	//procédure jeu
+	public void jeu(Partie part){
+		int[] res = new int[3];
+		int restant;
+		//demander combi utilisateur, test, tant que nbE<MaxE et pasTrouve combi
+		do{
+			part.chercheur.combi.creerCombi(this.taille);
+			res = part.combi.testCombi(part.chercheur.combi);
+			System.out.println("bien place : " +res[1]+" mal place : "+res[2]);
+			part.nbEssais++;
+			restant=this.maxEssais-part.nbEssais;
+			System.out.println("il reste "+ restant+" essais");
+		} while((part.nbEssais<this.maxEssais)&&(res[1]!=this.taille));
+		if (res[1]==this.taille){
+			System.out.println("BRAVO ! Vous avez gagné :))");
+			part.chercheur.score=this.maxEssais-part.nbEssais;
+		}else
+		{System.out.println("DOMMAGE ! Vous avez perdu :(");}
 	}
 
 
 	//Jeu du mastermind
   public static void main(String[] args){
   	 Mastermind mast = new Mastermind();
-     int nbEssais=0;
-     mast.saisirNiveau();
+		 int test;
+		 do{
+			 test=mast.menu();
+			 if (test==2){
+			 Partie newPartie = new Partie(mast.taille);
+       newPartie.lancerPartie();
+			 mast.jeu(newPartie);
+		  }
+		}while(test!=1);
   }
 }
