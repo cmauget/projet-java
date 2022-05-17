@@ -113,6 +113,7 @@ public class Mastermind{
 		if (res[1]==this.taille){
 			System.out.println("BRAVO ! Vous avez gagné :))");
 			part.chercheur.score=this.maxEssais-part.nbEssais;
+			this.scoreBoard.setScore(part.chercheur.score,part.chercheur.pseudo);
 		}else
 		{System.out.println("DOMMAGE ! Vous avez perdu :(");}
 	}
