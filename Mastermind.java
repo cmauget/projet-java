@@ -95,7 +95,14 @@ public class Mastermind{
 	//procédure jeu
 	public void jeu(Partie part){
 		int[] res = new int[3];
-		int restant;
+		int restant=0;
+		System.out.print("\033[H\033[2J");
+		System.out.flush();
+		for (int i=0;i<this.maxEssais;i++){
+			System.out.print("| "+0+" | "+0+" | "+0+" | "+0);
+			System.out.print(" | nbp: "+0+" | nmp :"+0+" | nbEssais restants : "+restant);
+			System.out.println(" ");
+		}
 		//demander combi utilisateur, test, tant que nbE<MaxE et pasTrouve combi
 		do{
 			part.chercheur.combi.creerCombi(this.taille);
@@ -104,20 +111,37 @@ public class Mastermind{
 			restant=this.maxEssais-part.nbEssais;
 			//affichage
 			int i=0;
-			for (i=0;i<this.taille;i++){
+			//for (i=0;i<this.taille;i++){
+			//	System.out.print("| "+part.chercheur.combi.combi[i]);
+			//}
+			//System.out.print(" | nbp: "+res[1]+" | nmp :"+res[2]+" | nbEssais restants : "+restant);
+			//System.out.println(" ");
+			affichage(part, restant, res);
+			} while((part.nbEssais<this.maxEssais)&&(res[1]!=this.taille));
+				if (res[1]==this.taille){
+					System.out.println("BRAVO ! Vous avez gagné :))");
+					part.chercheur.score=this.maxEssais-part.nbEssais;
+					this.scoreBoard.setScore(part.chercheur.score,part.chercheur.pseudo);
+				}else
+					{System.out.println("DOMMAGE ! Vous avez perdu :(");}
+	}
+
+	public void affichage(Partie part,int restant, int[] res, int nbEssais){
+			System.out.print("\033[H\033[2J");
+      System.out.flush();
+			int indiceTab;
+			indiceTab=this.maxEssais-restant;
+			for (int i=0;i<this.taille;i++){
 				System.out.print("| "+part.chercheur.combi.combi[i]);
 			}
 			System.out.print(" | nbp: "+res[1]+" | nmp :"+res[2]+" | nbEssais restants : "+restant);
 			System.out.println(" ");
-		} while((part.nbEssais<this.maxEssais)&&(res[1]!=this.taille));
-		if (res[1]==this.taille){
-			System.out.println("BRAVO ! Vous avez gagné :))");
-			part.chercheur.score=this.maxEssais-part.nbEssais;
-			this.scoreBoard.setScore(part.chercheur.score,part.chercheur.pseudo);
-		}else
-		{System.out.println("DOMMAGE ! Vous avez perdu :(");}
+			for (int j=indiceTab;j<this.maxEssais;j++){
+				System.out.print("| "+0+" | "+0+" | "+0+" | "+0);
+				System.out.print(" | nbp : "+0+" | nmp : "+0+" | nbEssais restants : "+0);
+				System.out.println(" ");
+			}
 	}
-
 
 	//Jeu du mastermind
   public static void main(String[] args){
