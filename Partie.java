@@ -40,8 +40,6 @@ public class Partie {
     Scanner sc2=new Scanner(System.in);
     int test;
     //initialise les parametres du chercheur
-    //nbEssais = 0;
-    //test proposition=solution
     System.out.println("La partie commence, le cacheur est un ordi(1) ou un joueur(0) ?");
     test=sc.nextInt();
     if(test==1){
@@ -59,7 +57,7 @@ public class Partie {
     //System.out.println("La combinaison est : "+this.combi);
   }
 
-  public void arreterPartie(Partie part){//Un peu moche 
+  public void arreterPartie(Partie part){//Un peu moche
     part=null;
     System.gc(); //garbage collector
     System.out.println("La partie c'est bien arrétée");

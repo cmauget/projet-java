@@ -70,7 +70,7 @@ public class Combinaison {
     //nbr couleurs dispo;
     int m=7;
     this.taille=niveauDifficulte;
-    for (int k=0;k<niveauDifficulte;++k){
+    for (int k=0;k<=niveauDifficulte-1;++k){
       this.combi[k] = rnd.nextInt(m)+1;
       }
   }
