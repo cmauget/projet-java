@@ -59,7 +59,7 @@ public class Partie {
     //System.out.println("La combinaison est : "+this.combi);
   }
 
-  public void arreterPartie(Partie part){//jsp comment faire autrement
+  public void arreterPartie(Partie part){//Un peu moche 
     part=null;
     System.gc(); //garbage collector
     System.out.println("La partie c'est bien arrétée");
@@ -76,7 +76,7 @@ public class Partie {
   public static void main(String[] args){
     Partie part=new Partie();
     part.lancerPartie();
-    part.arreterPartie(part);// a voir avec Bourgais
+    part.arreterPartie(part);
   }
 
 

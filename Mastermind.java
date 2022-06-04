@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class Mastermind{
+public class Mastermind extends JeuA2Joueur{
 
 	public int taille;
 	public int maxEssais;
@@ -116,7 +116,7 @@ public class Mastermind{
 			//}
 			//System.out.print(" | nbp: "+res[1]+" | nmp :"+res[2]+" | nbEssais restants : "+restant);
 			//System.out.println(" ");
-			affichage(part, restant, res);
+			affichage(part, restant, res, this.maxEssais);
 			} while((part.nbEssais<this.maxEssais)&&(res[1]!=this.taille));
 				if (res[1]==this.taille){
 					System.out.println("BRAVO ! Vous avez gagné :))");
