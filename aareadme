@@ -1,0 +1,16 @@
+Dans de dossier .zip vous pourrez retrouvez les classes suivantes :
+
+-Cacheur.java
+-Chercheur.java
+-Combinaison.java
+-HallOfFame.java
+-JeuA2joueurs.java
+-Joueur.java
+-Mastermind.java
+-Partie.java
+
+Vous trouverez également le fichier texte HallOfFame.txt qui contient les pseudo et le score des meilleurs joueurs.
+
+Pour jouer au Mastermind il faut compliler la classe Mastermind.java avec la commande : javac Mastermind.java et d'ensuite l'exécuter avec la commande : java Mastermind
+
+Amusez-vous bien!
