@@ -34,7 +34,7 @@ public class Combinaison {
           this.combi[i]=combi1[i];
   			}
   		catch(ArrayIndexOutOfBoundsException e){
-        this.taille=i;
+        this.taille=i; //test si problème de taille
   			System.out.println("Attention, la taille est trop grande. Nouvelle taille à "+this.taille);
       }
     }
@@ -65,7 +65,7 @@ public class Combinaison {
   }
 
   //pour ordinateur
-  public void genererCombi(int niveauDifficulte){
+  public void genererCombi(int niveauDifficulte){//genere aleatoirement une combinaison
     Random rnd = new Random();
     //nbr couleurs dispo;
     int m=7;
@@ -75,9 +75,9 @@ public class Combinaison {
       }
   }
 
-  public void creerCombi(int taille){
+  public void creerCombi(int taille){//permet de rentrer une combi
     int i=0;
-    System.out.println("Veuillez entrer votre combinaison svp");
+    System.out.println("Veuillez entrer votre combinaison svp ("+taille+" couleurs)");
     int[] CombiClavier = new int[taille];
     Scanner sc = new Scanner(System.in);
 
@@ -101,7 +101,7 @@ public class Combinaison {
     for(i=0;i<this.taille;i++) {
       j=0;
       if (combitest.combi[i]==this.combi[i]){
-        bienplace++;
+        bienplace++; //test les bien place
       } else{
         while (!test && j<this.taille){
           if (combitest.combi[j]==this.combi[i] && j!=i){

@@ -31,6 +31,7 @@ public class Mastermind extends JeuA2Joueur{
     System.out.println(" 3) HallOfFame");
     System.out.println(" 4) Quitter");
 		String str = sc.nextLine();
+		System.out.println("");
 
 
     if (str.equals("1")) {
@@ -56,7 +57,7 @@ public class Mastermind extends JeuA2Joueur{
   	char c= '.';
   	while(!(c == 'n' || c == 'p' || c == 'k'))
   	{
-   	 System.out.print("Niveau n)ovice p)ro k)iller?");
+   	 System.out.print("Niveau n)ovice p)ro k)iller ? : ");
 	 	 c=input.next().charAt(0);
 		}
 	  switch (c)
@@ -102,11 +103,6 @@ public class Mastermind extends JeuA2Joueur{
 		int l=1;
 		System.out.print("\033[H\033[2J");
 		System.out.flush();
-		for (int i=0;i<this.maxEssais;i++){
-			System.out.print("| "+0+" | "+0+" | "+0+" | "+0);
-			System.out.print(" | nbp: "+0+" | nmp :"+0+" | nbEssais restants : "+restant);
-			System.out.println(" ");
-		}
 		//demander combi utilisateur, test, tant que nbE<MaxE et pasTrouve combi
 		do{
 			part.chercheur.combi.creerCombi(this.taille);
@@ -121,33 +117,39 @@ public class Mastermind extends JeuA2Joueur{
 			ancienCombi[j][this.taille+2]=restant;
 			j++;
 			//affichage
-			affichage(part, restant, res, ancienCombi);
-			} while((part.nbEssais<this.maxEssais)&&(res[1]!=this.taille));
-				if (res[1]==this.taille){
-					System.out.println("BRAVO ! Vous avez gagné :))");
-					part.chercheur.score=this.maxEssais-part.nbEssais;
-					this.scoreBoard.setScore(part.chercheur.score,part.chercheur.pseudo);
-				}else
-					{System.out.println("DOMMAGE ! Vous avez perdu :(");}
+			this.affichage(part, restant, res, ancienCombi);
+		} while((part.nbEssais<this.maxEssais)&&(res[1]!=this.taille));
+
+		if (res[1]==this.taille){
+			System.out.println("BRAVO ! Vous avez gagné :))");
+			part.chercheur.score=((this.maxEssais-part.nbEssais)*20);
+			this.scoreBoard.setScore(part.chercheur.score,part.chercheur.pseudo);
+			System.out.println("Votres score est de : "+part.chercheur.score);
+		}else
+			{System.out.println("DOMMAGE ! Vous avez perdu :(");}
 	}
 
-	public void affichage(Partie part,int restant, int[] res, int[][] ancienCombi){
+	public void affichage(Partie part,int restant, int[] res, int[][] ancienCombi){// s'occupe de l'affichage propre
 			System.out.print("\033[H\033[2J");
       System.out.flush();
 			int indiceTab;
+			int nombrerestant;
 			indiceTab=this.maxEssais-restant;
 			for (int j=0;j<indiceTab;j++){
 				for (int i=0;i<this.taille;i++){
-					System.out.print("| "+ancienCombi[j][i]);
+					System.out.print("| "+ancienCombi[j][i]+" ");
 					//System.out.print("| "+part.chercheur.combi.combi[i]);
 				}
-				System.out.print(" | nbp: "+ancienCombi[j][this.taille]+" | nmp :"+ancienCombi[j][this.taille+1]+" | nbEssais restants : "+ancienCombi[j][this.taille+2]);
+				System.out.print("| nbp : "+ancienCombi[j][this.taille]+" | nmp : "+ancienCombi[j][this.taille+1]+" | nbEssais restants : "+ancienCombi[j][this.taille+2]);
 				System.out.println(" ");
+
 			}
 
 			for (int j=indiceTab;j<this.maxEssais;j++){
-				System.out.print("| "+0+" | "+0+" | "+0+" | "+0);
-				System.out.print(" | nbp : "+0+" | nmp : "+0+" | nbEssais restants : "+0);
+				for (int i=0;i<this.taille;i++){
+					System.out.print("| _ ");
+				}
+				System.out.print("| nbp : _ | nmp : _ | nbEssais restants : _");
 				System.out.println(" ");
 			}
 	}

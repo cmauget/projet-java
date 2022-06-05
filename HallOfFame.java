@@ -3,8 +3,8 @@ import java.util.Objects;
 
 public class HallOfFame {
 
-  public int[] tabScore; //tableau de 5
-  public String[] tabNom; //tableau de 5
+  public int[] tabScore; //tableau de 5 entier
+  public String[] tabNom; //tableau de 5 String
 
   public HallOfFame(){
     int i;
@@ -34,7 +34,7 @@ public class HallOfFame {
     return this.tabNom[rang+1];
   }
 
-  public int getScore(String pseudo){ //prend forcèment le meilleur score ?
+  public int getScore(String pseudo){ //prend forcement le meilleur score
     int i=0;                          //renvoie -1 si il n'y est pas
     int test=0;
     while (i<5 && test==0) {
@@ -50,7 +50,7 @@ public class HallOfFame {
     }
   }
 
-  public void setScore(int score, String pseudo){
+  public void setScore(int score, String pseudo){//place bien le score dans le tableau
     if (score>this.tabScore[4]){
       int i=4;
       while(i>0 && this.tabScore[i]<=score){
@@ -78,7 +78,7 @@ public class HallOfFame {
     return res;
   }
 
-  public void enregisterHall(){
+  public void enregisterHall(){// enrehistre le tableau dans un fichier txt
     int i;
     PrintWriter printWriter = null;
     //String textToBeWritten = "Hello";
@@ -96,7 +96,7 @@ public class HallOfFame {
         }
   }
 
-  public void chargerHall(){
+  public void chargerHall(){//charge le hall of fame d'un fichier txt 
     int i;
     File fichier;
 
